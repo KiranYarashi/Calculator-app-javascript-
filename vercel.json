@@ -1,10 +1,14 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "index.html",
-            "use": "@vercel/static-build",
-            "config": { "zeroConfig": true }
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.html",
+      "use": "@vercel/static-build",
+      "config": { "zeroConfig": true }
+    }
+  ],
+  "build": {
+    "src": "src",
+    "cmd": "npm run build"
+  }
 }

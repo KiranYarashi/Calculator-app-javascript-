@@ -6,8 +6,6 @@
       "use": "@vercel/static-build",
       "config": { "zeroConfig": true }
     }
-  ],
-  "build": {
-    "buildCommand": "npm run build"
-  }
+  ]
+ 
 }

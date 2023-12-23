@@ -8,7 +8,6 @@
     }
   ],
   "build": {
-    "src": "src",
     "cmd": "npm run build"
   }
 }

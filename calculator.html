@@ -11,6 +11,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
 
     <title>Calculator</title>
+    <style>
+        html,body{
+    height: 100%;
+    width: 100%;
+   font-family: 'Roboto', sans-serif;
+   /* select a backround color  */
+    background-color: rgb(248, 243, 243);
+}
+.button{
+    padding: 15px 25px;
+    border : 2px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 60px;
+   
+    font-size: 16px;
+    background-color: rgb(248, 243, 243); 
+    border: 2px solid #b0adad;
+}
+.button:hover {
+  
+    background-color: rgb(5, 5, 5); 
+    color: white;
+    border: 2px solid #b0adad;
+    box-shadow: 5px 2px 2px  grey;
+  }
+    .button:active {
+        background-color: rgb(5, 5, 5); 
+        color: white;
+        border: 2px solid #b0adad;
+        box-shadow: 5px 2px 2px  grey;
+        transform: translateY(2px);
+    }
+
+.row{
+    margin: 8px 0px;
+}
+.row input{
+    display: block;
+    margin: 0;
+    padding: 10px 4px;
+    border-radius: 6px;
+    border: 2px solid #000;
+    font-size: 20px;
+    
+}
+.text-center{
+    text-align: center;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.flex{
+display: flex;
+}
+.flex-col{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-center{
+   
+    align-items: center;
+}
+    </style>
 </head>
 <body>
 
@@ -51,6 +122,54 @@
         </div>
 
     </div>
-    <script src="script.js"></script>
+    <script >
+        let string="";
+let c=document.querySelector("input");
+let buttons = document.querySelectorAll("button");
+Array.from(buttons).forEach((button)=>{
+    button.addEventListener("click",(e)=>{
+
+        if(e.target.innerHTML=="="){
+            try{
+                c.value=eval(string);
+                string=c.value;
+            }
+            catch(err){
+                c.value="Error";
+                string="";
+            }
+            
+            return;
+        }
+        else if(e.target.innerHTML=="ON"){
+            string="0";
+            c.value=string;
+            return;
+        }
+        else if(e.target.innerHTML=="C"){
+            string="";
+            c.value=string;
+            return;
+        }
+        else if(e.target.innerHTML=="DEL"){
+            string=string.slice(0,-1);
+            c.value=string;
+            return;
+        }
+        else if(e.target.innerHTML=="DEL"){
+            string=string.slice(0,-1);
+            c.value=string;
+        }
+        else{
+        console.log(e.target);
+        string=string+e.target.innerHTML;
+        document.querySelector("input").value=string;
+        }
+        
+
+    })
+})
+
+    </script>
 </body>
 </html>
